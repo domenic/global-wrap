@@ -9,13 +9,13 @@ var globalWrap = require("..");
 
 specify("It works", function (done) {
     globalWrap({
-        main: path.resolve(__dirname, "input/entry.js"),
+        main: path.resolve(__dirname, "input/main.js"),
         global: "theTestGlobal",
         bundleOptions: { detectGlobals: false }
     }, function (err, output) {
         assert.ifError(err);
 
-        var expected = fs.readFileSync(path.resolve(__dirname, "output/expected.js"), "utf-8");
+        var expected = fs.readFileSync(path.resolve(__dirname, "expected/expected.js"), "utf-8");
         assert.strictEqual(output, expected);
         done();
     });
