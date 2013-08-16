@@ -1,6 +1,6 @@
 # Global-ify Your CommonJS Library
 
-This library will bundle up your CommonJS code and expose it as a property of the `window` object. It does so using
+This library will bundle up your CommonJS code and expose it as a property of the global object. It does so using
 [browserify](https://github.com/substack/node-browserify), so everything ends up in one file, even any native module
 shims you depend on.
 
@@ -19,7 +19,7 @@ The options are:
   to pass along, like `debug` or `detectGlobals`.
 
 The callback will be called with either an error or a string containing JavaScript source. This JS source will, upon
-being loaded into a browser, create the specified global on `window`, whose value will be the same as if you'd done
+being loaded into a browser, create the specified global on `self`, whose value will be the same as if you'd done
 `require(options.main)`. Thus, it's ready for inserting into your page as a `<script>` tag and use by other
 global-using scripts.
 
