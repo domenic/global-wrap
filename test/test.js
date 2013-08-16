@@ -1,11 +1,9 @@
 "use strict";
 
 var path = require("path");
-var fs = require("fs");
 var assert = require("assert");
+var jsdom = require("jsdom");
 var globalWrap = require("..");
-
-// Why am I using Mocha for this, you ask? Because of the great string diffing, I answer.
 
 specify("It works", function (done) {
     globalWrap({
@@ -15,8 +13,14 @@ specify("It works", function (done) {
     }, function (err, output) {
         assert.ifError(err);
 
-        var expected = fs.readFileSync(path.resolve(__dirname, "expected/expected.js"), "utf-8");
-        assert.strictEqual(output, expected);
-        done();
+        jsdom.env({
+            html: "<!DOCTYPE html><html><head><title>Global Wrap Test</title></head><body></body></html>",
+            src: [output, "window.theTestGlobal();"],
+            done: function (err, window) {
+                assert.ifError(err);
+                assert.strictEqual(window.testData, "beep boop; typeof process is: undefined");
+                done();
+            }
+        });
     });
 });
