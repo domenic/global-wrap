@@ -24,3 +24,25 @@ specify("It works", function (done) {
         });
     });
 });
+
+specify("It works when using a custom temp folder", function (done) {
+    globalWrap({
+        bundleOptions: { detectGlobals: false },
+        global: "theTestGlobal",
+        main: path.resolve(__dirname, "input/main.js"),
+        tmpDir: __dirname
+    }, function (err, output) {
+        assert.ifError(err);
+        var index = output.indexOf("self[\"theTestGlobal\"] = require(\"./input/main.js\");");
+        assert.notStrictEqual(index, -1);
+        jsdom.env({
+            html: "<!DOCTYPE html><html><head><title>Global Wrap Test</title></head><body></body></html>",
+            src: [output, "window.theTestGlobal();"],
+            done: function (err, window) {
+                assert.ifError(err);
+                assert.strictEqual(window.testData, "beep boop; typeof process is: undefined");
+                done();
+            }
+        });
+    });
+});

@@ -17,6 +17,8 @@ The options are:
 - `global`: the name of the global you want to expose.
 - `bundleOptions`: any browserify [bundle options](https://github.com/substack/node-browserify#bbundleopts-cb) you want
   to pass along, like `debug` or `detectGlobals`.
+- `tmpDir`: the temporary directory to use. If this option is not specified the operating system's default directory
+  for temp files will be used.
 
 The callback will be called with either an error or a string containing JavaScript source. This JS source will, upon
 being loaded into a browser, create the specified global on `self`, whose value will be the same as if you'd done
