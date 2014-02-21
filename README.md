@@ -15,6 +15,8 @@ The options are:
 
 - `main`: the file path of your main module, which you want to expose as a global.
 - `global`: the name of the global you want to expose.
+- `constructorOptions`: any browserify [options](https://github.com/substack/node-browserify#var-b--browserifyfiles-or-opts)
+  you want to pass along, like `noParse` or `builtins`.
 - `bundleOptions`: any browserify [bundle options](https://github.com/substack/node-browserify#bbundleopts-cb) you want
   to pass along, like `debug` or `detectGlobals`.
 - `tmpDir`: the temporary directory to use. If this option is not specified the operating system's default directory
