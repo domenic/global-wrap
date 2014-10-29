@@ -7,6 +7,7 @@
     "license": "WTFPL",
     "repository": "domenic/global-wrap",
     "main": "lib/global-wrap.js",
+    "files": ["lib/", "LICENSE.txt"],
     "scripts": {
         "test": "mocha",
         "lint": "jshint lib"
