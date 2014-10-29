@@ -12,13 +12,13 @@
         "lint": "jshint lib"
     },
     "dependencies": {
-        "browserify": "~6.2.0",
-        "concat-stream": "~1.4.1",
-        "lodash": "~2.4.1"
+        "browserify": "^6.2.0",
+        "concat-stream": "^1.4.6",
+        "lodash": "^2.4.1"
     },
     "devDependencies": {
-        "jshint": "~2.4.3",
-        "jsdom": "~0.10.0",
-        "mocha": "~1.17.1"
+        "jshint": "^2.5.7",
+        "jsdom": "^1.0.3",
+        "mocha": "^2.0.0"
     }
 }
