@@ -16,7 +16,7 @@
         "lint": "jshint lib"
     },
     "dependencies": {
-        "browserify": "~4.2.0",
+        "browserify": "~6.2.0",
         "concat-stream": "~1.4.1",
         "lodash": "~2.4.1"
     },

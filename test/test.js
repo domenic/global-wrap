@@ -9,7 +9,7 @@ specify("It works", function (done) {
     globalWrap({
         main: path.resolve(__dirname, "input/main.js"),
         global: "theTestGlobal",
-        bundleOptions: { detectGlobals: false }
+        browserifyOptions: { detectGlobals: false }
     }, function (err, output) {
         assert.ifError(err);
 
@@ -27,7 +27,7 @@ specify("It works", function (done) {
 
 specify("It works when using a custom temp folder", function (done) {
     globalWrap({
-        bundleOptions: { detectGlobals: false },
+        browserifyOptions: { detectGlobals: false },
         global: "theTestGlobal",
         main: path.resolve(__dirname, "input/main.js"),
         tmpDir: __dirname
